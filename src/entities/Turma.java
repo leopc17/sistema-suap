@@ -1,13 +1,16 @@
 package entities;
 
+import java.util.Scanner;
+
 public class Turma {
     private int id;
+    private String ano; // AnoLetivo
     private String disciplina;
-    private String ano;
     private Professor professor;
-    private Aluno[] alunos;
 
-    public Turma (String disciplina) {
+    public Turma(int id, String ano, String disciplina) {
+        this.id = id;
+        this.ano = ano;
         this.disciplina = disciplina;
     }
 
@@ -19,14 +22,6 @@ public class Turma {
         this.id = id;
     }
 
-    public String getDisciplina() {
-        return disciplina;
-    }
-
-    public void setDisciplina(String disciplina) {
-        this.disciplina = disciplina;
-    }
-
     public String getAno() {
         return ano;
     }
@@ -35,26 +30,42 @@ public class Turma {
         this.ano = ano;
     }
 
+    public String getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(String disciplina) {
+        this.disciplina = disciplina;
+    }
+
     public Professor getProfessor() {
         return professor;
     }
 
     public void setProfessor(Professor professor) {
         this.professor = professor;
+        professor.adicionarTurma(this);
     }
 
-    public Aluno[] getAlunos() {
-        return alunos;
-    }
+    public static Turma lerNovaTurma(Scanner sc, Scanner scString) {
+        System.out.print("Digite o código da turma (id): ");
+        int id = sc.nextInt();
 
-    public void setAlunos(Aluno[] alunos) {
-        this.alunos = alunos;
+        System.out.print("Digite o ano letivo da turma no formato (ano/semestre): ");
+        String ano = scString.nextLine();
+
+        System.out.print("Digite o nome da disciplina: ");
+        String disciplina = scString.nextLine();
+
+        return new Turma(id, ano, disciplina);
     }
 
     @Override
     public String toString() {
         return "Turma{" +
-                "disciplina='" + disciplina + '\'' +
+                "id=" + id +
+                ", ano='" + ano + '\'' +
+                ", disciplina='" + disciplina + '\'' +
                 '}';
     }
 }

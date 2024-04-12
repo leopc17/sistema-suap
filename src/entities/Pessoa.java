@@ -1,14 +1,11 @@
 package entities;
 
+import java.util.Scanner;
+
 public class Pessoa {
     private String nome;
     private int idade;
     private String email;
-
-    public Pessoa(String nome, int idade) {
-        this.nome = nome;
-        this.idade = idade;
-    }
 
     public Pessoa(String nome, int idade, String email) {
         this.nome = nome;
@@ -34,6 +31,19 @@ public class Pessoa {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public static Pessoa lerNovaPessoa(Scanner sc, Scanner scString) {
+        System.out.print("Nome: ");
+        String nome = scString.nextLine();
+
+        System.out.print("Idade: ");
+        int idade = sc.nextInt();
+
+        System.out.print("Email pessoal: ");
+        String email = scString.nextLine();
+
+        return new Pessoa(nome, idade, email);
     }
 
     @Override

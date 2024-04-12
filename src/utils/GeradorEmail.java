@@ -4,8 +4,8 @@ import entities.Aluno;
 import entities.Professor;
 
 public class GeradorEmail {
-    private static final String dominioAluno = "@aluno.uepb.edu.br";
-    private static final String dominioServidor = "@servidor.uepb.edu.br";
+    private static String dominioAluno = "@aluno.uepb.edu.br";
+    private static String dominioServidor = "@servidor.uepb.edu.br";
 
     public static String gerarEmailInstitucional(Aluno a) {
         return a.getNome().toLowerCase().replace(" ", ".") + dominioAluno;
