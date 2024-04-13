@@ -2,6 +2,8 @@ package entities;
 
 import utils.GeradorEmail;
 
+import static app.Main.scString;
+
 public class Professor extends Pessoa{
     private final int TAM = 10;
 

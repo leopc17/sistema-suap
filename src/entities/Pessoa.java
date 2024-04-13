@@ -1,11 +1,9 @@
 package entities;
 
-import java.util.Scanner;
+import static app.Main.sc;
+import static app.Main.scString;
 
 public class Pessoa {
-    public static final Scanner sc = new Scanner(System.in);
-    public static final Scanner scString = new Scanner(System.in);
-
     private String nome;
     private int idade;
     private String email;

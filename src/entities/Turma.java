@@ -1,5 +1,8 @@
 package entities;
 
+import static app.Main.sc;
+import static app.Main.scString;
+
 public class Turma {
     private final int TAM = 50;
 
@@ -116,6 +119,7 @@ public class Turma {
                 float nota = Pessoa.sc.nextFloat();
 
                 Prova p = new Prova(alunos[i], this, nota);
+                this.prova = p;
                 alunos[i].addProva(p);
             }
         }
@@ -123,13 +127,13 @@ public class Turma {
 
     public static Turma lerNovaTurma() {
         System.out.print("Digite o código da turma (id): ");
-        int id = Pessoa.sc.nextInt();
+        int id = sc.nextInt();
 
         System.out.print("Digite o ano letivo da turma no formato (ano/semestre): ");
-        String ano = Pessoa.scString.nextLine();
+        String ano = scString.nextLine();
 
         System.out.print("Digite o nome da disciplina: ");
-        String disciplina = Pessoa.scString.nextLine();
+        String disciplina = scString.nextLine();
 
         return new Turma(id, ano, disciplina);
     }
