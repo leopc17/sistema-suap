@@ -11,12 +11,14 @@ public class Aluno extends Pessoa {
     private String emailInstitucional;
     private Turma[] turmas;
     private int qtdTurmas;
+    private Prova[] provas;
 
     public Aluno(String nome, int idade, String email) {
         super(nome, idade, email);
         this.matricula = gerarMatricula();
         this.emailInstitucional = GeradorEmail.gerarEmailInstitucional(this);
         this.turmas = new Turma[TAM];
+        this.provas = new Prova[TAM];
     }
 
     public String getMatricula() {
@@ -33,6 +35,10 @@ public class Aluno extends Pessoa {
 
     public int getQtdTurmas() {
         return qtdTurmas;
+    }
+
+    public Prova[] getProvas() {
+        return provas;
     }
 
     public boolean turmaExiste(Turma t) {
@@ -74,6 +80,21 @@ public class Aluno extends Pessoa {
                 turmas[i] = null;
                 t.removerAluno(this);
                 qtdTurmas--;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean addProva(Prova p) {
+        if (p == null) {
+            return false;
+        }
+
+        for (int i = 0; i < provas.length; i++) {
+            if (provas[i] == null) {
+                provas[i] = p;
                 return true;
             }
         }

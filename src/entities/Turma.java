@@ -9,6 +9,7 @@ public class Turma {
     private Aluno[] alunos;
     private int qtdAlunos;
     private Professor professor;
+    private Prova prova;
 
     public Turma(int id, String ano, String disciplina) {
         this.id = id;
@@ -45,13 +46,21 @@ public class Turma {
         return alunos;
     }
 
+    public int getQtdAlunos() {
+        return qtdAlunos;
+    }
+
     public Professor getProfessor() {
         return professor;
     }
 
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
-        professor.adicionarTurma(this);
+    public Prova getProva() {
+        return prova;
+    }
+
+    public void addProfessor(Professor p) {
+        this.professor = p;
+        p.addTurma(this);
     }
 
     public boolean alunoExiste(Aluno a) {
@@ -96,6 +105,20 @@ public class Turma {
         }
 
         return false;
+    }
+
+    public void aplicarProva() {
+        if (prova != null) {
+            System.out.println("A prova já foi aplicada nesta turma");
+        } else {
+            for (int i = 0; i < qtdAlunos; i++) {
+                System.out.printf("Nota do aluno %s na disciplina de %s: ", alunos[i].getNome(), disciplina);
+                float nota = Pessoa.sc.nextFloat();
+
+                Prova p = new Prova(alunos[i], this, nota);
+                alunos[i].addProva(p);
+            }
+        }
     }
 
     public static Turma lerNovaTurma() {

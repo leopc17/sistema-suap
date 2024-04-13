@@ -47,7 +47,7 @@ public class Professor extends Pessoa{
         return false;
     }
 
-    public boolean adicionarTurma(Turma t) {
+    public boolean addTurma(Turma t) {
         if (turmaExiste(t)) {
             return false;
         }
@@ -59,7 +59,7 @@ public class Professor extends Pessoa{
         if (qtdTurmas < turmas.length) {
             turmas[qtdTurmas] = t;
             qtdTurmas++;
-            t.setProfessor(this);
+            t.addProfessor(this);
             return true;
         }
 
@@ -75,7 +75,7 @@ public class Professor extends Pessoa{
             if (turmas[i].getId() == t.getId()) {
                 turmas[i] = null;
                 qtdTurmas--;
-                t.setProfessor(null);
+                t.addProfessor(null);
                 return true;
             }
         }

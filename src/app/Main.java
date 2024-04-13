@@ -4,30 +4,30 @@ import entities.Aluno;
 import entities.Pessoa;
 import entities.Professor;
 import entities.Turma;
+import entities.Prova;
 
 public class Main {
     public static void main(String[] args) {
-        Turma[] turmas = new Turma[3];
-        turmas[0] = Turma.lerNovaTurma();
+        Turma t1 = Turma.lerNovaTurma();
         Aluno a1 = Aluno.lerNovoAluno();
-        turmas[0].addAluno(a1);
+        Aluno a2 = Aluno.lerNovoAluno();
+        Professor p1 = Professor.lerNovoProfessor();
 
-        for (Aluno a : turmas[0].getAlunos()) {
-            if (a != null) {
-                System.out.println(a);
+        t1.addProfessor(p1);
+        a1.matricular(t1);
+        a2.matricular(t1);
+
+        t1.aplicarProva();
+
+        for (Prova p : a1.getProvas()) {
+            if (p != null) {
+                System.out.println(p);
             }
         }
 
-        turmas[0].removerAluno(a1);
-
-        Professor p1 = Professor.lerNovoProfessor();
-        turmas[0].setProfessor(p1);
-
-        System.out.println(turmas[0].getProfessor());
-
-        for (Turma t : p1.getTurmas()) {
-            if (t != null) {
-                System.out.println(t);
+        for (Prova p : a2.getProvas()) {
+            if (p != null) {
+                System.out.println(p);
             }
         }
 
