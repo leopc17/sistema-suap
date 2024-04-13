@@ -2,8 +2,6 @@ package entities;
 
 import utils.GeradorEmail;
 
-import java.util.Scanner;
-
 public class Professor extends Pessoa{
     private final int TAM = 10;
 
@@ -85,9 +83,9 @@ public class Professor extends Pessoa{
         return false;
     }
 
-    public static Professor lerNovoProfessor(Scanner sc, Scanner scString) {
+    public static Professor lerNovoProfessor() {
         System.out.println("Digite os dados do professor:");
-        Pessoa p = lerNovaPessoa(sc, scString);
+        Pessoa p = lerNovaPessoa();
 
         System.out.print("Titulação: ");
         String titulacao = scString.nextLine();
@@ -109,7 +107,7 @@ public class Professor extends Pessoa{
         nomeTurmas += "]";
 
         return  "+------------------------------------------------------+\n" +
-                "|               Ficha do(a) Professor(a)               |\n" +
+                "|               Dados do(a) Professor(a)               |\n" +
                 "+------------------------------------------------------+\n" +
                 " Nome: " + getNome() + "\n" +
                 " Idade: " + getIdade() + "\n" +

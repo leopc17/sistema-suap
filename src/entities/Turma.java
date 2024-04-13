@@ -1,6 +1,6 @@
 package entities;
 
-import java.util.Scanner;
+import app.Main;
 
 public class Turma {
     private int id;
@@ -47,15 +47,15 @@ public class Turma {
         professor.adicionarTurma(this);
     }
 
-    public static Turma lerNovaTurma(Scanner sc, Scanner scString) {
+    public static Turma lerNovaTurma() {
         System.out.print("Digite o código da turma (id): ");
-        int id = sc.nextInt();
+        int id = Pessoa.sc.nextInt();
 
         System.out.print("Digite o ano letivo da turma no formato (ano/semestre): ");
-        String ano = scString.nextLine();
+        String ano = Pessoa.scString.nextLine();
 
         System.out.print("Digite o nome da disciplina: ");
-        String disciplina = scString.nextLine();
+        String disciplina = Pessoa.scString.nextLine();
 
         return new Turma(id, ano, disciplina);
     }

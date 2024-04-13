@@ -3,7 +3,6 @@ package entities;
 import utils.GeradorEmail;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class Aluno extends Pessoa {
     private final int TAM = 5;
@@ -93,9 +92,9 @@ public class Aluno extends Pessoa {
         return str;
     }
 
-    public static Aluno lerNovoAluno(Scanner sc, Scanner scString) {
+    public static Aluno lerNovoAluno() {
         System.out.println("Digite os dados do aluno:");
-        Pessoa p = lerNovaPessoa(sc, scString);
+        Pessoa p = lerNovaPessoa();
 
         return new Aluno(p.getNome(), p.getIdade(), p.getEmail());
     }
@@ -114,7 +113,7 @@ public class Aluno extends Pessoa {
         nomeTurmas += "]";
 
         return  "+--------------------------------------------+\n" +
-                "|               Ficha do Aluno               |\n" +
+                "|               Dados do(a) Aluno(a)         |\n" +
                 "+--------------------------------------------+\n" +
                 " Nome: " + getNome() + "\n" +
                 " Idade: " + getIdade() + "\n" +

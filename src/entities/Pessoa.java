@@ -3,6 +3,9 @@ package entities;
 import java.util.Scanner;
 
 public class Pessoa {
+    public static final Scanner sc = new Scanner(System.in);
+    public static final Scanner scString = new Scanner(System.in);
+
     private String nome;
     private int idade;
     private String email;
@@ -33,7 +36,7 @@ public class Pessoa {
         this.email = email;
     }
 
-    public static Pessoa lerNovaPessoa(Scanner sc, Scanner scString) {
+    public static Pessoa lerNovaPessoa() {
         System.out.print("Nome: ");
         String nome = scString.nextLine();
 
