@@ -56,6 +56,7 @@ public class Aluno extends Pessoa {
 
         if (qtdTurmas < turmas.length) {
             turmas[qtdTurmas] = t;
+            t.addAluno(this);
             qtdTurmas++;
             return true;
         }
@@ -71,6 +72,7 @@ public class Aluno extends Pessoa {
         for (int i = 0; i < qtdTurmas; i++) {
             if (turmas[i].getId() == t.getId()) {
                 turmas[i] = null;
+                t.removerAluno(this);
                 qtdTurmas--;
                 return true;
             }
