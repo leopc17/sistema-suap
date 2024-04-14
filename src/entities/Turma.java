@@ -140,10 +140,25 @@ public class Turma {
 
     @Override
     public String toString() {
-        return "Turma{" +
-                "id=" + id +
-                ", ano='" + ano + '\'' +
-                ", disciplina='" + disciplina + '\'' +
-                '}';
+        String nomeAlunos = "[";
+
+        for (int i = 0; i < qtdAlunos; i++) {
+            nomeAlunos += alunos[i].getNome();
+            if (i < qtdAlunos - 1) {
+                nomeAlunos += ", ";
+            }
+        }
+
+        nomeAlunos += "]";
+
+        return  "+--------------------------------------------+\n" +
+                "|               Dados da Turma               |\n" +
+                "+--------------------------------------------+\n" +
+                " Id: " + id + "\n" +
+                " Ano: " + ano + "\n" +
+                " Disciplina: " + disciplina + "\n" +
+                " Professor: " + professor.getNome() + "\n" +
+                " Alunos: " + nomeAlunos + "\n" +
+                "+--------------------------------------------+\n";
     }
 }
