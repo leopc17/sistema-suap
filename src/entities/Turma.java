@@ -116,7 +116,7 @@ public class Turma {
         } else {
             for (int i = 0; i < qtdAlunos; i++) {
                 System.out.printf("Nota do aluno %s na disciplina de %s: ", alunos[i].getNome(), disciplina);
-                float nota = Pessoa.sc.nextFloat();
+                float nota = sc.nextFloat();
 
                 Prova p = new Prova(alunos[i], this, nota);
                 this.prova = p;
