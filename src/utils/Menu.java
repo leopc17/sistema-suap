@@ -7,12 +7,13 @@ import static app.Main.scString;
 
 public class Menu {
     private static final int TAM = 50;
-    private static Turma[] turmas = new Turma[TAM];
-    private static Aluno[] alunos = new Aluno[TAM];
-    private static Professor[] professores = new Professor[TAM];
-    private static int qtdTurmas = 0, qtdAlunos = 0, qtdProfessores = 0;
+    protected static Turma[] turmas = new Turma[TAM];
+    protected static Aluno[] alunos = new Aluno[TAM];
+    protected static Professor[] professores = new Professor[TAM];
+    protected static int qtdTurmas = 0, qtdAlunos = 0, qtdProfessores = 0;
 
     public static void exibir() {
+        BD.iniciar();
         int escolha;
 
         do {
