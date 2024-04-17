@@ -157,7 +157,6 @@ public class Turma {
                 " Id: " + id + "\n" +
                 " Ano: " + ano + "\n" +
                 " Disciplina: " + disciplina + "\n" +
-//                " Professor: " + professor.getNome() + "\n" +
                 " Alunos: " + nomeAlunos + "\n" +
                 "+--------------------------------------------+\n";
     }

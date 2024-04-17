@@ -170,6 +170,7 @@ public class Menu {
                         break;
                     }
 
+                    System.out.println("Professor adicionado!");
                     t4.addProfessor(p2);
                     break;
                 case 13:
