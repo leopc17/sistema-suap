@@ -4,14 +4,9 @@ import entities.*;
 
 import static app.Main.sc;
 import static app.Main.scString;
+import static utils.BD.*;
 
 public class Menu {
-    private static final int TAM = 50;
-    protected static Turma[] turmas = new Turma[TAM];
-    protected static Aluno[] alunos = new Aluno[TAM];
-    protected static Professor[] professores = new Professor[TAM];
-    protected static int qtdTurmas = 0, qtdAlunos = 0, qtdProfessores = 0;
-
     public static void exibir() {
         BD.iniciar();
         int escolha;
@@ -203,32 +198,5 @@ public class Menu {
                     System.out.println("Opção inválida!");
             }
         } while (escolha != 15);
-    }
-
-    private static Aluno acharAluno(String matricula) {
-        for (int i = 0; i < qtdAlunos; i++) {
-            if (alunos[i].getMatricula().equals(matricula)) {
-                return alunos[i];
-            }
-        }
-        return null;
-    }
-
-    private static Turma acharTurma(int id) {
-        for (int i = 0; i < qtdTurmas; i++) {
-            if (turmas[i].getId() == id) {
-                return turmas[i];
-            }
-        }
-        return null;
-    }
-
-    private static Professor acharProfessor(String nome) {
-        for (int i = 0; i < qtdProfessores; i++) {
-            if (professores[i].getNome().equals(nome)) {
-                return professores[i];
-            }
-        }
-        return null;
     }
 }
