@@ -17,22 +17,16 @@ public class Menu {
         int escolha;
 
         do {
-            System.out.println("Escolha uma das opções:");
-            System.out.println("01 - Criar Turma");
-            System.out.println("02 - Criar Aluno");
-            System.out.println("03 - Criar Professor");
-            System.out.println("04 - Exibir Dados da Turma");
-            System.out.println("05 - Exibir Dados do Aluno");
-            System.out.println("06 - Exibir Dados do Professor");
-            System.out.println("07 - Exibir Todas as Turmas");
+            System.out.println("Escolha uma das opções:\n");
+
+            System.out.println("01 - Criar Turma                 " + "09 - Exibir Todos os Professores");
+            System.out.println("02 - Criar Aluno                 " + "10 - Matricular Aluno");
+            System.out.println("03 - Criar Professor             " + "11 - Desmatricular Aluno");
+            System.out.println("04 - Exibir Dados da Turma       " + "12 - Adicionar Professor na Turma");
+            System.out.println("05 - Exibir Dados do Aluno       " + "13 - Aplicar Prova");
+            System.out.println("06 - Exibir Dados do Professor   " + "14 - Exibir todas as notas do Aluno");
+            System.out.println("07 - Exibir Todas as Turmas      " + "15 - Encerrar");
             System.out.println("08 - Exibir Todos os Alunos");
-            System.out.println("09 - Exibir Todos os Professores");
-            System.out.println("10 - Matricular Aluno");
-            System.out.println("11 - Desmatricular Aluno");
-            System.out.println("12 - Adicionar Professor na Turma");
-            System.out.println("13 - Aplicar Prova");
-            System.out.println("14 - Exibir todas as notas do Aluno");
-            System.out.println("15 - Encerrar");
 
             escolha = sc.nextInt();
 
