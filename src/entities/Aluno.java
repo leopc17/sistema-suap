@@ -5,20 +5,14 @@ import utils.GeradorEmail;
 import java.util.Random;
 
 public class Aluno extends Pessoa {
-    private final int TAM = 5;
-
     private String matricula;
     private String emailInstitucional;
-    private Turma[] turmas;
-    private int qtdTurmas;
     private Prova[] provas;
 
     public Aluno(String nome, int idade, String email) {
         super(nome, idade, email);
         this.matricula = gerarMatricula();
         this.emailInstitucional = GeradorEmail.gerarEmailInstitucional(this);
-        this.turmas = new Turma[TAM];
-        this.provas = new Prova[TAM];
     }
 
     public String getMatricula() {
@@ -29,77 +23,16 @@ public class Aluno extends Pessoa {
         return emailInstitucional;
     }
 
-    public Turma[] getTurmas() {
-        return turmas;
-    }
-
-    public int getQtdTurmas() {
-        return qtdTurmas;
-    }
-
     public Prova[] getProvas() {
         return provas;
     }
 
-    public boolean turmaExiste(Turma t) {
-        for(int i = 0; i < qtdTurmas; i++) {
-            if (turmas[i].getId() == t.getId()) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public boolean matricular(Turma t) {
-        if (turmaExiste(t)) {
-            return false;
-        }
-
-        if (t == null) {
-            return false;
-        }
-
-        if (qtdTurmas < turmas.length) {
-            turmas[qtdTurmas] = t;
-            t.addAluno(this);
-            qtdTurmas++;
-            return true;
-        }
-
-        return false;
-    }
-
-    public boolean desmatricular(Turma t) {
-        if (t == null) {
-            return false;
-        }
-
-        for (int i = 0; i < qtdTurmas; i++) {
-            if (turmas[i].getId() == t.getId()) {
-                turmas[i] = null;
-                t.removerAluno(this);
-                qtdTurmas--;
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public boolean addProva(Prova p) {
-        if (p == null) {
-            return false;
-        }
-
+    public void addProva(Prova p) {
         for (int i = 0; i < provas.length; i++) {
             if (provas[i] == null) {
                 provas[i] = p;
-                return true;
             }
         }
-
-        return false;
     }
 
     private String gerarMatricula() {
@@ -124,24 +57,13 @@ public class Aluno extends Pessoa {
 
     @Override
     public String toString() {
-        String nomeTurmas = "[";
-
-        for (int i = 0; i < qtdTurmas; i++) {
-            nomeTurmas += turmas[i].getDisciplina();
-            if (i < qtdTurmas - 1) {
-                nomeTurmas += ", ";
-            }
-        }
-
-        nomeTurmas += "]";
-
         return  "+--------------------------------------------+\n" +
                 "|               Dados do(a) Aluno(a)         |\n" +
                 "+--------------------------------------------+\n" +
                 " Nome: " + getNome() + "\n" +
                 " Idade: " + getIdade() + "\n" +
-                " Matrícula: " + getMatricula() + "\n" +
-                " Turmas matriculadas: " + nomeTurmas + "\n" +
+                " Matrícula: " + matricula + "\n" +
+                " Email Institucional: " + emailInstitucional + "\n" +
                 "+--------------------------------------------+\n";
     }
 }

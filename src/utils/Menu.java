@@ -27,7 +27,15 @@ public class Menu {
 
             switch (escolha) {
                 case 1:
-                    turmas[qtdTurmas] = Turma.lerNovaTurma();
+                    Turma novaTurma = Turma.lerNovaTurma();
+
+                    // pra garantir que n tenha nenhuma turma com o mesmo id
+                    if (acharTurma(novaTurma.getId()) != null) {
+                        System.out.println("Essa Turma já existe");
+                        break;
+                    }
+
+                    turmas[qtdTurmas] = novaTurma;
                     System.out.println(turmas[qtdTurmas]);
                     qtdTurmas++;
                     break;
@@ -117,7 +125,7 @@ public class Menu {
                         break;
                     }
 
-                    a2.matricular(t2);
+                    t2.addAluno(a2);
                     System.out.println("Aluno matriculado com sucesso!");
                     break;
                 case 11:
@@ -138,7 +146,7 @@ public class Menu {
                         break;
                     }
 
-                    a3.desmatricular(t3);
+                    t3.removerAluno(a3);
                     System.out.println("O aluno foi desmatriculado com sucesso!");
                     break;
                 case 12:
@@ -186,11 +194,17 @@ public class Menu {
                         break;
                     }
 
+                    if (a4.getProvas() == null) {
+                        System.out.println("O Aluno ainda não possui provas");
+                        break;
+                    }
+
                     for (Prova p : a4.getProvas()) {
                         if (p != null) {
                             System.out.println(p);
                         }
                     }
+
                     break;
                 case 15:
                     break;

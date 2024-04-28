@@ -12,7 +12,6 @@ public class Turma {
     private Aluno[] alunos;
     private int qtdAlunos;
     private Professor professor;
-    private Prova prova;
 
     public Turma(int id, String ano, String disciplina) {
         this.id = id;
@@ -57,13 +56,21 @@ public class Turma {
         return professor;
     }
 
-    public Prova getProva() {
-        return prova;
-    }
-
     public void addProfessor(Professor p) {
         this.professor = p;
-        p.addTurma(this);
+    }
+
+
+    // esse método é só caso
+    // a turma não tenha professor
+    // o toString consiga imprimir o nome vazio
+
+    private String getNomeProfessor() {
+        if (professor == null) {
+            return "";
+        } else {
+            return professor.getNome();
+        }
     }
 
     public boolean alunoExiste(Aluno a) {
@@ -111,17 +118,12 @@ public class Turma {
     }
 
     public void aplicarProva() {
-        if (prova != null) {
-            System.out.println("A prova já foi aplicada nesta turma");
-        } else {
-            for (int i = 0; i < qtdAlunos; i++) {
-                System.out.printf("Nota do aluno %s na disciplina de %s: ", alunos[i].getNome(), disciplina);
-                float nota = sc.nextFloat();
+        for (int i = 0; i < qtdAlunos; i++) {
+            System.out.printf("Nota do aluno %s na disciplina de %s: ", alunos[i].getNome(), disciplina);
+            float nota = sc.nextFloat();
 
-                Prova p = new Prova(alunos[i], this, nota);
-                this.prova = p;
-                alunos[i].addProva(p);
-            }
+            Prova p = new Prova(alunos[i], this, nota);
+            alunos[i].addProva(p);
         }
     }
 
@@ -158,6 +160,7 @@ public class Turma {
                 " Ano: " + ano + "\n" +
                 " Disciplina: " + disciplina + "\n" +
                 " Alunos: " + nomeAlunos + "\n" +
+                " Professor: " + getNomeProfessor() + "\n" +
                 "+--------------------------------------------+\n";
     }
 }
