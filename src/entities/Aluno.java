@@ -27,7 +27,7 @@ public class Aluno extends Pessoa {
     }
 
     public Prova[] getProvas() {
-        return provas;git 
+        return provas;
     }
 
     public boolean addProva(Prova p) {
