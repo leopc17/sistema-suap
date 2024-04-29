@@ -12,20 +12,20 @@ public class BD {
 
     public static void iniciar() {
         turmas[0] = new Turma(1, "2024/1", "TCS");
-        turmas[1] = new Turma(2, "2024/1", "Prog. II");
+        turmas[1] = new Turma(2, "2024/1", "Prog. I");
         turmas[2] = new Turma(3, "2024/1", "Física");
         qtdTurmas += 3;
 
-        alunos[0] = new Aluno("a", 0, "");
-        alunos[1] = new Aluno("b", 0, "");
-        alunos[2] = new Aluno("c", 0, "");
-        alunos[3] = new Aluno("d", 0, "");
-        alunos[4] = new Aluno("e", 0, "");
+        alunos[0] = new Aluno("Ana", 20, "ana@gmail.com");
+        alunos[1] = new Aluno("Bernardo", 38, "bernardo@gmail.com");
+        alunos[2] = new Aluno("Cristiano", 27, "cris@gmail.com");
+        alunos[3] = new Aluno("David", 17, "david@gmail.com");
+        alunos[4] = new Aluno("Enzo", 15, "enzo@gmail.com");
         qtdAlunos += 5;
 
-        professores[0] = new Professor("f", 0, "", "Doutor");
-        professores[1] = new Professor("g", 0, "", "Doutor");
-        professores[2] = new Professor("h", 0, "", "Doutor");
+        professores[0] = new Professor("Janine", 40, "janine@gmail.com", "Doutora");
+        professores[1] = new Professor("Érico", 40, "erico@gmail.com", "Doutor");
+        professores[2] = new Professor("Ricardo", 42, "rick@gmail.com", "Doutor");
         qtdProfessores += 3;
     }
 
