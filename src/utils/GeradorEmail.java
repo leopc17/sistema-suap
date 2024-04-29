@@ -8,14 +8,14 @@ public class GeradorEmail {
     private static String dominioServidor = "@servidor.uepb.edu.br";
 
     public static String gerarEmailInstitucional(Aluno a) {
-        return a.getNome().toLowerCase().replace(" ", ".") + dominioAluno;
+        return removerAcentos(a.getNome()).toLowerCase().replace(" ", ".") + dominioAluno;
     }
 
     public static String gerarEmailInstitucional(Professor p) {
-        return p.getNome().toLowerCase().replace(" ", ".") + dominioServidor;
+        return removerAcentos(p.getNome()).toLowerCase().replace(" ", ".") + dominioServidor;
     }
 
-    private String removerAcentos (String texto){
+    private static String removerAcentos (String texto){
         texto = texto.replaceAll("[ÂÀÁÄÃ]","A");
         texto = texto.replaceAll("[âãàáä]","a");
         texto = texto.replaceAll("[ÊÈÉË]","E");
