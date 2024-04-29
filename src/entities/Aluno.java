@@ -5,6 +5,8 @@ import utils.GeradorEmail;
 import java.util.Random;
 
 public class Aluno extends Pessoa {
+    private final int TAM = 5;
+
     private String matricula;
     private String emailInstitucional;
     private Prova[] provas;
@@ -13,6 +15,7 @@ public class Aluno extends Pessoa {
         super(nome, idade, email);
         this.matricula = gerarMatricula();
         this.emailInstitucional = GeradorEmail.gerarEmailInstitucional(this);
+        this.provas = new Prova[TAM];
     }
 
     public String getMatricula() {
@@ -24,15 +27,18 @@ public class Aluno extends Pessoa {
     }
 
     public Prova[] getProvas() {
-        return provas;
+        return provas;git 
     }
 
-    public void addProva(Prova p) {
+    public boolean addProva(Prova p) {
         for (int i = 0; i < provas.length; i++) {
             if (provas[i] == null) {
                 provas[i] = p;
+                return true;
             }
         }
+
+        return false;
     }
 
     private String gerarMatricula() {
