@@ -2,6 +2,7 @@ package entities;
 
 import utils.GeradorEmail;
 
+import static app.Main.sc;
 import static app.Main.scString;
 
 public class Professor extends Pessoa {
@@ -28,12 +29,19 @@ public class Professor extends Pessoa {
 
     public static Professor lerNovoProfessor() {
         System.out.println("Digite os dados do professor:");
-        Pessoa p = lerNovaPessoa();
+        System.out.print("Nome: ");
+        String nome = scString.nextLine();
+
+        System.out.print("Idade: ");
+        int idade = sc.nextInt();
+
+        System.out.print("Email pessoal: ");
+        String email = scString.nextLine();
 
         System.out.print("Titulação: ");
         String titulacao = scString.nextLine();
 
-        return new Professor(p.getNome(), p.getIdade(), p.getEmail(), titulacao);
+        return new Professor(nome, idade, email, titulacao);
     }
 
     @Override

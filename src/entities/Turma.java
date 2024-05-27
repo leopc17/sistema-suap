@@ -142,6 +142,9 @@ public class Turma {
 
     @Override
     public String toString() {
+         // certo = [florido, seneca]
+         // errado = [florido, seneca, ]
+
         String nomeAlunos = "[";
 
         for (int i = 0; i < qtdAlunos; i++) {

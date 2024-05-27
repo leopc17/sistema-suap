@@ -4,6 +4,9 @@ import utils.GeradorEmail;
 
 import java.util.Random;
 
+import static app.Main.sc;
+import static app.Main.scString;
+
 public class Aluno extends Pessoa {
     private final int TAM = 5;
 
@@ -48,7 +51,7 @@ public class Aluno extends Pessoa {
 
         for (int i = 0; i < 9; i++) {
             int n = random.nextInt(10);
-            str += String.valueOf(n);
+            str += String.valueOf(n); // transformar int em String
         }
 
         return str;
@@ -56,18 +59,21 @@ public class Aluno extends Pessoa {
 
     public static Aluno lerNovoAluno() {
         System.out.println("Digite os dados do aluno:");
-        Pessoa p = lerNovaPessoa();
+        System.out.print("Nome: ");
+        String nome = scString.nextLine();
 
-        return new Aluno(p.getNome(), p.getIdade(), p.getEmail());
+        System.out.print("Idade: ");
+        int idade = sc.nextInt();
+
+        System.out.print("Email pessoal: ");
+        String email = scString.nextLine();
+
+        return new Aluno(nome, idade, email);
     }
 
     @Override
     public String toString() {
-        return  "+--------------------------------------------+\n" +
-                "|               Dados do(a) Aluno(a)         |\n" +
-                "+--------------------------------------------+\n" +
-                " Nome: " + getNome() + "\n" +
-                " Idade: " + getIdade() + "\n" +
+        return  super.toString() +
                 " Matrícula: " + matricula + "\n" +
                 " Email Institucional: " + emailInstitucional + "\n" +
                 "+--------------------------------------------+\n";
