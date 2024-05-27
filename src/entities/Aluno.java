@@ -7,7 +7,7 @@ import java.util.Random;
 import static app.Main.sc;
 import static app.Main.scString;
 
-public class Aluno extends Pessoa {
+public class Aluno extends Pessoa implements MembroAcademico {
     private final int TAM = 5;
 
     private String matricula;
@@ -33,18 +33,8 @@ public class Aluno extends Pessoa {
         return provas;
     }
 
-    public boolean addProva(Prova p) {
-        for (int i = 0; i < provas.length; i++) {
-            if (provas[i] == null) {
-                provas[i] = p;
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    private String gerarMatricula() {
+    @Override
+    public String gerarMatricula() {
         Random random = new Random();
 
         String str = "";
@@ -55,6 +45,17 @@ public class Aluno extends Pessoa {
         }
 
         return str;
+    }
+
+    public boolean addProva(Prova p) {
+        for (int i = 0; i < provas.length; i++) {
+            if (provas[i] == null) {
+                provas[i] = p;
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public static Aluno lerNovoAluno() {
