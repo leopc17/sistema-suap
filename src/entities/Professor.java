@@ -14,6 +14,7 @@ public class Professor extends Pessoa implements MembroAcademico {
 
     public Professor(String nome, int idade, String email, String titulacao) {
         super(nome, idade, email);
+        this.matricula = gerarMatricula();
         this.titulacao = titulacao;
         this.emailInstitucional = GeradorEmail.gerarEmailInstitucional(this);
     }
