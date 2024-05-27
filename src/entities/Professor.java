@@ -69,6 +69,8 @@ public class Professor extends Pessoa implements MembroAcademico {
     @Override
     public String toString() {
         return  super.toString() +
+                " Matrícula: " + matricula + "\n" +
+                " Email Institucional: " + emailInstitucional + "\n" +
                 " Titulação: " + titulacao + "\n" +
                 "+------------------------------------------------------+\n";
     }
